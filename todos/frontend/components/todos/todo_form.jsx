@@ -33,7 +33,6 @@ class TodoForm extends React.Component {
   //   const tags = this.state.tags
   //   tags.push(e.target.value);
   //   console.log(this.state.tags);
-
   //   this.setState({
   //     tags: tags
   //   })

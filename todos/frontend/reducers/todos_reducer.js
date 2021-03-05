@@ -2,6 +2,7 @@ import {
   RECEIVE_TODOS,
   RECEIVE_TODO,
   REMOVE_TODO,
+  TOGGLE_STATUS
 } from "../actions/todo_actions";
 
 const initialState = {
@@ -23,6 +24,7 @@ const todosReducer = (state = initialState, action) => {
   Object.freeze(state);
   const nextState = Object.assign({}, state);
   const newState = {};
+
   switch (action.type) {
     case RECEIVE_TODOS:
       for (let i = 0; i < action.todos.length; i++) {
@@ -34,6 +36,13 @@ const todosReducer = (state = initialState, action) => {
       return nextState;
     case REMOVE_TODO:
       delete nextState[action.todoId];
+      return nextState;
+    case TOGGLE_STATUS:
+      if (nextState[action.todoId].done){
+        nextState[action.todoId].done = false;
+      } else {
+        nextState[action.todoId].done = true;
+      }
       return nextState;
     default:
       return state;

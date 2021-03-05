@@ -8,11 +8,13 @@ const TodoList = (props) => {
       <TodoForm receiveTodo={props.receiveTodo} />
       <ul>
         {props.todos.map((todo, idx) => {
-          return <TodoListItem 
-          key={idx}
-          todo={todo}
-          removeTodo={props.removeTodo}
-          receiveTodo={props.receiveTodo} />
+          // debugger
+          return <TodoListItem
+            key={idx}
+            todo={todo}
+            removeTodo={props.removeTodo}
+            receiveTodo={props.receiveTodo}
+            toggleStatus={props.toggleStatus} />
         })}
       </ul>
     </div>
