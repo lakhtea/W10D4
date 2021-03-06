@@ -1,8 +1,13 @@
-import React from 'react';
-import TodoListContainer from './todos/todo_list_container';
+import React from "react";
+import TodoListContainer from "./todos/todo_list_container";
 
+const obj = {
+  todo_id: 1,
+};
 const App = () => (
-  <TodoListContainer />
+  <div>
+    <TodoListContainer />
+  </div>
 );
 
 export default App;
