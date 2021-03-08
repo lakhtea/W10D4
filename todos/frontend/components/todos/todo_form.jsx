@@ -40,14 +40,14 @@ class TodoForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.receiveTodo(this.state)
-    this.setState({
-      id: this.uniqueId(),
-      title: "",
-      body: "",
-      tags: [],
-      done: false
-    });
+    this.props.createTodo(this.state).then( 
+     () => this.setState({
+        id: this.uniqueId(),
+        title: "",
+        body: "",
+        tags: [],
+        done: false
+    }));
   } 
 
  uniqueId() {
@@ -56,21 +56,28 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>Title:
-          <input type="text" onChange={this.updateTitle} value={this.state.title}/>
-        </label>
-  
-        <label>Body:
-          <textarea onChange={this.updateBody} value={this.state.body} cols="30" rows="10"></textarea>
-        </label>
-  
-        {/* <label>Tags:
-          <input type="text" onChange={this.updateTags} value={this.state.tags}/>
-        </label> */}
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <label>Title:
+            <input type="text" onChange={this.updateTitle} value={this.state.title}/>
+          </label>
+    
+          <label>Body:
+            <textarea onChange={this.updateBody} value={this.state.body} cols="30" rows="10"></textarea>
+          </label>
+    
+          {/* <label>Tags:
+            <input type="text" onChange={this.updateTags} value={this.state.tags}/>
+          </label> */}
 
-        <button>Make Todo!</button>
-      </form>
+          <button>Make Todo!</button>
+        </form>
+        {/* <ul>
+          {
+            this.props.receiveErrors
+          }
+        </ul> */}
+      </div>
     );
   }
 }

@@ -5,7 +5,6 @@ import StepForm from "./step_form";
 class StepList extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
 
   render() {
