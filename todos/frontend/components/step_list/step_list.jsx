@@ -5,17 +5,22 @@ import StepForm from "./step_form";
 class StepList extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props);
   }
 
   render() {
     return (
       <div>
-        {/* <StepForm /> */}
         <ul>
           {this.props.steps.map((step, idx) => {
             return <StepListItemContainer key={idx} step={step} />;
           })}
         </ul>
+
+        <StepForm
+          receiveStep={this.props.receiveStep}
+          todo_id={this.props.todo_id}
+        />
       </div>
     );
   }
